@@ -1,11 +1,28 @@
-<button (click)="openString()">문자열 컨텐츠 모달 열기</button>
-<button (click)="openTemplate()">template 컨텐츠 모달 열기</button>
+<div>
+    <button (click)="openString()">문자열 컨텐츠 모달 열기</button>
+</div>
+<div>
+    <button (click)="openTemplate()">template 컨텐츠 모달 열기</button>
+</div>
+<div>
+    <button (click)="openTemplateFull()">template 컨텐츠를 풀로 모달 열기</button>
+</div>
 
 
 <ng-template #tmplDialogView>
     <div class="modal_tmpl">
         템플릿 뷰로 커스텀하게 컨텐츠 노출
         <button (click)="clickClose()">닫기</button>
+    </div>
+</ng-template>
+
+<ng-template #tmplFullView>
+    <div class="modal_tmpl full">
+        <div class="inner">
+            모달 오버레이를 사용하지 않고, 템플릿 뷰로만 모달 사용하는 경우.
+            자체 css를 적용(풀로 채워) 커스텀하게 컨텐츠 노출
+            <button (click)="clickClose()">닫기</button>
+        </div>
     </div>
 </ng-template>
   

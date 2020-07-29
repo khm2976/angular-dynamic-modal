@@ -9,6 +9,7 @@ import { ModalRef } from './service/modal-ref';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    @ViewChild('tmplFullView', {read: TemplateRef}) modalDialogFullView: TemplateRef<any>;
     @ViewChild('tmplDialogView', {read: TemplateRef}) modalDialogView: TemplateRef<any>;
     dialogModal: ModalRef = null;
 
@@ -31,6 +32,17 @@ export class AppComponent {
     openTemplate() {
         if (!this.dialogModal) {
             this.dialogModal = this.modalService.open(this.modalDialogView, false, true);
+            // 모달 딤드 클릭하여 닫기시
+            const dialogModalCloseSubscription = this.dialogModal.closed().subscribe(modalRef => {
+                this.dialogModal = null;
+                dialogModalCloseSubscription.unsubscribe();
+            });
+        }
+    }
+
+    openTemplateFull() {
+        if (!this.dialogModal) {
+            this.dialogModal = this.modalService.open(this.modalDialogFullView, true, true);
             // 모달 딤드 클릭하여 닫기시
             const dialogModalCloseSubscription = this.dialogModal.closed().subscribe(modalRef => {
                 this.dialogModal = null;
