@@ -1,9 +1,9 @@
 import { Subject, Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-export class ModalConfig {
+export interface ModalConfig {
     id: string;
-    isClickedOverlayForClose = true;
+    isClickedOverlayForClose: boolean;
 }
 
 export class ModalRef {
@@ -11,13 +11,12 @@ export class ModalRef {
     openModal$: BehaviorSubject<ModalRef> = new BehaviorSubject(null);
     closeSubscription: Subscription = null;
     private mdId: string;
-    private modalConfig: ModalConfig = new ModalConfig();
 
     constructor(
         private mdComponentRef: any,
         private mdInnerContent: any,
+        private modalConfig: ModalConfig
     ) {
-
         this.mdId = this.modalConfig.id;
         if (this.modalConfig.isClickedOverlayForClose) {
             const closeSubscription = this.mdComponentRef.instance.close

@@ -40,6 +40,19 @@ export class AppComponent {
         }
     }
 
+    // 모달 딤드 닫기 처리 안되도록
+    openTemplateNoOverlay() {
+        if (!this.dialogModal) {
+            this.dialogModal = this.modalService.open(this.modalDialogView, false, false);
+            // 모달 딤드 클릭하여 닫기시
+            const dialogModalCloseSubscription = this.dialogModal.closed().subscribe(modalRef => {
+                this.dialogModal = null;
+                dialogModalCloseSubscription.unsubscribe();
+            });
+        }
+    }
+
+    // 컨텐츠를 모달로 풀로 띄우기
     openTemplateFull() {
         if (!this.dialogModal) {
             this.dialogModal = this.modalService.open(this.modalDialogFullView, true, true);

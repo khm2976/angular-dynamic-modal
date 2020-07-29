@@ -43,7 +43,7 @@ export class ModalService {
         componentRef.instance.isFullCover = isFullCoverContent;
         const modalConfig: ModalConfig = {
             id: `modal-${this.count++}`,
-            isClickedOverlayForClose: isClickedOverlayForClose
+            isClickedOverlayForClose: isClickedOverlayForClose,
         };
         return new ModalRef(componentRef, ngContent.innerContent, modalConfig);
     }
