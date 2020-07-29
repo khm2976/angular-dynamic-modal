@@ -1,6 +1,3 @@
-/**
- * 외부에서는 이 서비스만 이용
- */
 import {
     ApplicationRef,
     ComponentFactoryResolver,

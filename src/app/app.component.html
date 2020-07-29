@@ -1,1 +1,10 @@
 <button (click)="openString()">문자열 컨텐츠 모달 열기</button>
+<button (click)="openTemplate()">template 컨텐츠 모달 열기</button>
+
+
+<ng-template #tmplDialogView>
+    <div class="modal_tmpl">
+        템플릿 뷰로 커스텀하게 컨텐츠 노출
+    </div>
+</ng-template>
+  
