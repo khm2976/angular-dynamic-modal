@@ -8,4 +8,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CardComponent {
     @Input() point = 0;
     @Output() clickHeart = new EventEmitter<any>();
+
+    clickHeartItem() {
+        this.clickHeart.emit();
+    }
 }

@@ -2,7 +2,6 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
 
 import { ModalService } from './service/modal.service';
 import { ModalRef } from './service/modal-ref';
-
 import { CardComponent } from './card/card.component';
 
 @Component({
@@ -66,14 +65,14 @@ export class AppComponent {
         }
     }
 
+    // 동적 컴포넌트 생성
     openComponent() {
         const cardModalRef = this.modalService.open(CardComponent, false, true, {point: 5});
         // cardComponent Output 이벤트 받기
         const cardComp = cardModalRef.innerContent.instance;
         // 카드 컴포넌트에서 이벤트 받기
-        // TODO: 이벤트 받아오는 부분
         cardComp.clickHeart.subscribe(() => {
-            alert('하트 클릭')
+            alert('하트 클릭');
             // this.modalService.close(cardModalRef)
         });
     }
