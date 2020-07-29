@@ -3,6 +3,8 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { ModalService } from './service/modal.service';
 import { ModalRef } from './service/modal-ref';
 
+import { CardComponent } from './card/card.component';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -62,6 +64,18 @@ export class AppComponent {
                 dialogModalCloseSubscription.unsubscribe();
             });
         }
+    }
+
+    openComponent() {
+        const cardModalRef = this.modalService.open(CardComponent, false, true, {point: 5});
+        // cardComponent Output 이벤트 받기
+        const cardComp = cardModalRef.innerContent.instance;
+        // 카드 컴포넌트에서 이벤트 받기
+        // TODO: 이벤트 받아오는 부분
+        cardComp.clickHeart.subscribe(() => {
+            alert('하트 클릭')
+            // this.modalService.close(cardModalRef)
+        });
     }
 
     // 동적 생성된 뷰에서 모달 컨테이너 닫기 처리
