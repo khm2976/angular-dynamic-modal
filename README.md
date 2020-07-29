@@ -1,6 +1,7 @@
 # DynamicModal
 
 동적으로 모달 레이어를 생성한다.
+[type]: string, templateView, component
 
 ## Development server
 
