@@ -1,6 +1,7 @@
 # DynamicModal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+동적으로 모달 레이어를 생성한다.
+[type]: string, templateView, component
 
 ## Development server
 
