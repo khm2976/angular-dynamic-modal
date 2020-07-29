@@ -38,4 +38,12 @@ export class AppComponent {
             });
         }
     }
+
+    // 동적 생성된 뷰에서 모달 컨테이너 닫기 처리
+    clickClose() {
+        if (this.dialogModal) {
+            this.modalService.close(this.dialogModal);
+            this.dialogModal = null;
+        }
+    }
 }
