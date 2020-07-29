@@ -1,0 +1,6 @@
+<div class="modal-container {{isFullCover? 'full_inner' : 'inner'}}" >
+    <div class="overlay" (click)="clickOverlay()" (touchmove)="touchMoveOverlay($event)"></div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+    </div>
+</div>
